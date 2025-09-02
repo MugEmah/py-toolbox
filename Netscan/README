@@ -1,0 +1,56 @@
+# 🔍 Multithreaded Network Scanner
+
+A fast and lightweight Python-based network scanner that uses **multithreading** to quickly check if hosts are alive.  
+It supports single IPs, domain names, and entire networks in **CIDR notation**.  
+Includes a **progress bar**, **colored output**, and **graceful exit** on `Ctrl+C`.  
+
+---
+
+## ✨ Features
+- 🚀 **Multithreaded scanning** for speed (default: 50 threads).
+- 🎨 **Color-coded output**: 
+  - 🟢 Green for UP hosts
+  - 🔴 Red for DOWN hosts
+- 📦 **CIDR support**: Scan entire subnets at once.
+- 🔧 **Cross-platform**: Works on Linux, macOS, and Windows.
+- 🛑 **Graceful exit** when interrupted (no ugly tracebacks).
+
+---
+
+## 🛠️ Requirements
+
+Install dependencies with:
+```bash
+pip install colorama tqdm
+
+
+##USAGE
+python scanner.py <target> [--threads N]
+
+## Example
+# Scan a single host
+python scanner.py 192.168.1.1
+
+# Scan a domain
+python scanner.py google.com
+
+# Scan a whole subnet
+python scanner.py 192.168.0.0/24 --threads 100
+
+
+##Example Output
+🔍 Scanning 254 host(s) with 100 threads...
+
+Scanning: 100%|████████████████████████████████████████| 254/254
+192.168.0.1 is UP
+192.168.0.2 is DOWN
+192.168.0.3 is UP
+...
+
+##Project Structure
+.
+├── netscan.py   # Main scanner script
+└── README.md    # Project documentation
+
+##Creator
+MugeTechOps
