@@ -1,0 +1,68 @@
+# Python Port Scanner
+
+A lightweight and fast **Python-based port scanner** that can scan single hosts, entire subnets, 
+or IP ranges.  
+It detects **open ports, common services, and OS fingerprints (basic TTL method)**.  
+Built for sysadmins, network engineers, and pentesters.  
+
+---
+
+## ✨ Features
+- 🌐 Scan **single IPs, domains, or full subnets (CIDR)**.
+- 🚀 **Multithreading** for high-speed scans.
+- 🛠️ **Custom port ranges** (default: 1–1024).
+- 🔍 **Service detection** for common ports (HTTP, SSH, RDP, etc.).
+- 🖥️ **Basic OS detection** via `ping` TTL values.
+- 🛑 **Graceful Ctrl+C exit**.
+
+---
+
+## 🛠️ Requirements
+
+Install dependencies:
+```bash
+pip install tqdm colorama
+
+##Built-in modules used:
+argparse
+socket
+ipaddress
+platform
+subprocess
+signal
+sys
+concurrent.futures
+
+##USAGE
+~python port_scanner.py <target> [--ports START-END] [--threads N]
+
+| Argument    | Description                        | Example           |
+| ----------- | ---------------------------------- | ----------------- |
+| `target`    | Host, domain, or subnet in CIDR    | `192.168.1.0/24`  |
+| `--ports`   | Port range (default: `1-1024`)     | `--ports 1-65535` |
+| `--threads` | Number of threads (default: `100`) | `--threads 200`   |
+
+##EXAMPLE
+# Scan a single host
+python port_scanner.py 192.168.1.10
+
+# Scan all ports on a subnet
+python port_scanner.py 192.168.1.0/24 --ports 1-65535 --threads 200
+
+# Scan a domain
+python port_scanner.py example.com
+
+##EXAMPLE OUTPUT
+🔍 Scanning 1 host(s) | Ports 1-1024 | Threads 100
+
+Host: 192.168.1.10 | OS: Linux/Unix
+  [+] Port 22 OPEN (SSH)
+  [+] Port 80 OPEN (HTTP)
+
+##PROJECT STRUCTURE
+.
+├── port_scanner.py  # Main scanner script
+└── README.md        # Project documentation
+
+##CREATOR
+MugeTechOps
