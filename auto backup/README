@@ -1,0 +1,48 @@
+## Python Auto Backup Script
+
+A simple **cross-platform backup script** written in Python.  
+It creates **timestamped backups** of a given folder and stores them in a destination folder as either **.zip** or **.tar.gz** archives.  
+Old backups are automatically deleted if they exceed a set limit.
+
+---
+
+## ✨ Features
+- 🔹 Cross-platform (Windows, macOS, Linux).
+- 🔹 Choose between `.zip` (Windows-friendly) or `.tar.gz` (Linux/macOS).
+- 🔹 Automatically cleans up old backups (keeps only the latest ones).
+- 🔹 Easy-to-edit config at the top of the script.
+- 🔹 Simple, lightweight, no external dependencies.
+
+---
+
+## 🛠️ Requirements
+- Python **3.6+**
+- No external libraries needed (only built-in Python modules).
+
+---
+
+## ⚙️ Configuration
+Edit these variables at the top of `auto_backup.py`:
+
+```python
+SOURCE_DIR = r"C:\path\to\source"    # Folder you want to back up
+BACKUP_DIR = r"C:\path\to\backup"    # Destination folder for backups
+MAX_BACKUPS = 5                      # Max backups to keep
+BACKUP_FORMAT = "zip"                # "zip" or "tar.gz"
+
+## 🚀 Usage
+python auto_backup.py
+
+## Example Output
+[+] Creating zip backup: C:\path\to\backup\backup_2025-09-06_14-30-00.zip
+[+] Backup created successfully.
+[!] Removing 1 old backup(s).
+[x] Removed C:\path\to\backup\backup_2025-09-04_10-00-00.zip
+
+## 📂 Project Structure
+.
+├── auto_backup.py   # Main script
+└── README.md        # Project documentation
+
+##Creator
+MugeTechOps
